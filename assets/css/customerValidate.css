@@ -1,0 +1,37 @@
+@charset "utf-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    padding: 0
+}
+
+.ErrorIntPop {
+    right: 0;
+    top: 36px;
+    position: absolute;
+}
+
+.TipLtTop {
+    border: 1px solid #d4d4d4;
+    background: #fff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+    position: relative;
+    word-spacing: .3em;
+}
+
+.TipMod {
+    position: absolute;
+    width: 11px;
+    height: 6px;
+    background-position: -62px -79px;
+    right: 7px;
+    top: -6px;
+    _top: -5px;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.LtList {
+    line-height: 20px;
+    padding: 8px 10px 6px;
+    word-wrap: break-word;
+}

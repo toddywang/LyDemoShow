@@ -1,0 +1,14 @@
+/* 初始化 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,input,button,textarea,p,blockquote,th,td,form{margin:0; padding:0;}
+/* 表单模版 */
+.lyui-form select{display: none;}
+.lyui-form-select{font-family: "Microsoft YaHei";font-size: 12px;width: 250px;height: 30px;line-height: 30px;}
+.lyui-form-sltitle{border: 1px solid #ccc;height: 30px;padding-left: 5px;border-radius: 2px;position: relative;}
+.lyui-form-sltitle span{padding:0;}
+.lyui-form-sltitle .lyui-edge{width: 20px;height: 20px;position: absolute;top: 5px;right: 10px;background: url("default/book2select-icon.png")}
+.lyui-form-option{display:none; position: relative; top: 0; left:-1px; width: 100%; max-height: 200px; overflow-y: auto; border:1px solid #DFDFDF; background-color:#fff;}
+.lyui-form-option li{position:relative;cursor: pointer; height: 30px; line-height: 30px;}
+.lyui-form-option li.selected{background-color: #F3F3F3;color: #999;}
+.lyui-form-option li a{display:block;  padding:0 8px; color:#333; }
+.lyui-form-option li a:hover{background-color:#22ade6; color:#fff;text-decoration: none;}
+

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Form库</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="公用函数">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/js/common/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <style type="text/css">
+        input[type="text"] {
+            margin-bottom: 0px;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Front-End</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="./ly.html">公共函数库</a>
+                    </li>
+                    <li class="">
+                        <a href="#">扩展中...</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>公用函数库</h1>
+
+        <p class="lead">基于JQuery的公共函数库，我们正在努力扩展中！<br/>
+            <span style="font-size: 16px;">注意引用顺序（并将js文件引用到&lt;/body&gt;之前）：</span><br/>
+            <code>&lt;script src="xxxx/js/jquery-1.7.2.min.js"&gt;</code><code>&lt;/script&gt;</code><br/>
+            <code>&lt;script src="xxxx/js/ly.js"&gt;</code><code>&lt;/script&gt;</code><br/>
+        </p>
+    </div>
+</header>
+
+
+<div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+        <div class="span3 bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav">
+                <li><a href="#lyselect"><i class="icon-chevron-right"></i>select</a></li>
+            </ul>
+        </div>
+        <div class="span9">
+            <section id="lyselect">
+                <div class="page-header">
+                    <h1>select</h1>
+                    <p>
+                        <span class="label label-info">注意</span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="download/ly.zip">点击下载</a>
+                    </p>
+                </div>
+                <h2>$.lyFrom().select()</h2>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>方法名</th>
+                        <th>描述</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>$.lyFrom().select()</td>
+                        <td>
+                            <pre class="prettyprint linenums">
+formBox: 覆盖Dom对象,//默认为$(".lyui-form")
+coverStyle: 覆盖样式
+coverOption: 覆盖option内容
+success: select加载成功回调函数
+click: 点击事件回掉函数
+zIndex: 19910903//下拉层级</pre>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="bs-docs-example lyui-form">
+
+                    <select>
+                        <option value="228">￥40元/航段/人|最高赔付150万</option>
+                        <option value="212" selected>￥60元/航段/人|最高赔付180万</option>
+                        <option value="391">￥80元/航段/人|最高赔付200万</option>
+                        <option value="216">￥120元/航段/人|最高赔付250万</option>
+                        <option value="">不需要|</option>
+                    </select>
+                    <style>
+                        .gu {
+                            width: 400px;
+                        }
+                    </style>
+                </div>
+<pre class="prettyprint linenums">
+&lt;div class="bs-docs-example lyui-form"&gt;
+    &lt;select&gt;
+        &lt;option value="228"&gt;￥40元/航段/人|最高赔付150万&lt;/option&gt;
+        &lt;option value="212"&gt;￥60元/航段/人|最高赔付180万&lt;/option&gt;
+        &lt;option value="391"&gt;￥80元/航段/人|最高赔付200万&lt;/option&gt;
+        &lt;option value="216"&gt;￥120元/航段/人|最高赔付250万&lt;/option&gt;
+        &lt;option value=""&gt;不需要|&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/div&gt;</pre>
+                <pre class="prettyprint linenums">
+$.lyFrom().select({
+    formBox: $(".lyui-form"),
+    coverStyle: '.lyui-form-sltitle span,.lyui-form-option li a span{color: #ccc;margin-left: 15px;position: absolute;right: 50px;}',
+    coverOption: function (optionStr) {
+        return optionStr.split("|")[0] + "&lt;span&gt;" + optionStr.split("|")[1] + "&lt;/span&gt;";
+    },
+    success: function () {
+        console.log && console.log("success");
+    },
+    click: function () {
+        console.log && console.log("click");
+    }
+});</pre>
+            </section>
+            <!-- 扩展。。。-->
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <p>Designed and built with all the love in the world by <a target="_blank">@Front-End Team</a>.</p>
+    </div>
+</footer>
+
+
+<!-- javascript
+================================================== -->
+<script src="assets/js/jquery-1.7.2.min.js"></script>
+<script src="assets/js/bootstrap-transition.js"></script>
+<script src="assets/js/bootstrap-alert.js"></script>
+<script src="assets/js/bootstrap-modal.js"></script>
+<script src="assets/js/bootstrap-dropdown.js"></script>
+<script src="assets/js/bootstrap-scrollspy.js"></script>
+<script src="assets/js/bootstrap-tab.js"></script>
+<script src="assets/js/bootstrap-tooltip.js"></script>
+<script src="assets/js/bootstrap-popover.js"></script>
+<script src="assets/js/bootstrap-button.js"></script>
+<script src="assets/js/bootstrap-collapse.js"></script>
+<script src="assets/js/bootstrap-carousel.js"></script>
+<script src="assets/js/bootstrap-typeahead.js"></script>
+<script src="assets/js/bootstrap-affix.js"></script>
+<script src="assets/js/common/holder/holder.js"></script>
+<script src="assets/js/common/google-code-prettify/prettify.js"></script>
+<script src="assets/js/application.js"></script>
+
+<script type="text/javascript" src="assets/js/plugins/ly/ly.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.lyFrom().select({
+            formBox: $(".lyui-form"),
+            coverStyle: '.lyui-form-sltitle span,.lyui-form-option li a span{color: #ccc;margin-left: 15px;position: absolute;right: 50px;}',
+            coverOption: function (optionStr) {
+                return optionStr.split("|")[0] + "<span>" + optionStr.split("|")[1] + "</span>";
+            },
+            success: function () {
+                console.log && console.log("success");
+            },
+            click: function () {
+                console.log && console.log("click");
+            }
+        });
+    })
+</script>
+</body>
+</html>
