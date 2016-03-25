@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="assets/ico/favicon.png">
     <style type="text/css">
         input[type="text"] {
-            margin-bottom: 0px;
+            margin-bottom: 0;
         }
     </style>
 </head>
@@ -78,6 +78,7 @@
         <div class="span3 bs-docs-sidebar">
             <ul class="nav nav-list bs-docs-sidenav">
                 <li><a href="#lyselect"><i class="icon-chevron-right"></i>select</a></li>
+                <li><a href="#lycheckbox"><i class="icon-chevron-right"></i>checkbox</a></li>
             </ul>
         </div>
         <div class="span9">
@@ -85,7 +86,8 @@
                 <div class="page-header">
                     <h1>select</h1>
                     <p>
-                        <span class="label label-info">注意</span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="download/ly.zip">点击下载</a>
+                        <span class="label label-info">注意</span>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                            href="download/ly.zip">点击下载</a>
                     </p>
                 </div>
                 <h2>$.lyFrom().select()</h2>
@@ -112,7 +114,6 @@ zIndex: 19910903//下拉层级</pre>
                     </tbody>
                 </table>
                 <div class="bs-docs-example lyui-form">
-
                     <select>
                         <option value="228">￥40元/航段/人|最高赔付150万</option>
                         <option value="212" selected>￥60元/航段/人|最高赔付180万</option>
@@ -120,11 +121,6 @@ zIndex: 19910903//下拉层级</pre>
                         <option value="216">￥120元/航段/人|最高赔付250万</option>
                         <option value="">不需要|</option>
                     </select>
-                    <style>
-                        .gu {
-                            width: 400px;
-                        }
-                    </style>
                 </div>
 <pre class="prettyprint linenums">
 &lt;div class="bs-docs-example lyui-form"&gt;
@@ -136,7 +132,7 @@ zIndex: 19910903//下拉层级</pre>
         &lt;option value=""&gt;不需要|&lt;/option&gt;
     &lt;/select&gt;
 &lt;/div&gt;</pre>
-                <pre class="prettyprint linenums">
+<pre class="prettyprint linenums">
 $.lyFrom().select({
     formBox: $(".lyui-form"),
     coverStyle: '.lyui-form-sltitle span,.lyui-form-option li a span{color: #ccc;margin-left: 15px;position: absolute;right: 50px;}',
@@ -151,6 +147,71 @@ $.lyFrom().select({
     }
 });</pre>
             </section>
+
+            <section id="lycheckbox">
+                <div class="page-header">
+                    <h1>checkbox</h1>
+                    <p>
+                        <span class="label label-info">注意</span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="download/ly.zip">点击下载</a>
+                    </p>
+                </div>
+                <h2>$.lyFrom().checkbox()</h2>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>方法名</th>
+                        <th>描述</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>$.lyFrom().checkbox()</td>
+                        <td>
+                            <pre class="prettyprint linenums">
+formBox: 覆盖Dom对象,//默认为$(".lyui-form")
+coverStyle: 覆盖样式
+coverOption: 覆盖option内容
+success: select加载成功回调函数
+click: 点击事件回掉函数
+zIndex: 19910903//下拉层级</pre>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="bs-docs-example lyui-form">
+                    <style>
+                        input[type="radio"], input[type="checkbox"] {
+                            margin: 0;
+                        }
+                    </style>
+                    <input type="checkbox" value="1">选择
+                </div>
+<pre class="prettyprint linenums">
+&lt;div class="bs-docs-example lyui-form"&gt;
+    &lt;select&gt;
+        &lt;option value="228"&gt;￥40元/航段/人|最高赔付150万&lt;/option&gt;
+        &lt;option value="212"&gt;￥60元/航段/人|最高赔付180万&lt;/option&gt;
+        &lt;option value="391"&gt;￥80元/航段/人|最高赔付200万&lt;/option&gt;
+        &lt;option value="216"&gt;￥120元/航段/人|最高赔付250万&lt;/option&gt;
+        &lt;option value=""&gt;不需要|&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/div&gt;</pre>
+<pre class="prettyprint linenums">
+$.lyFrom().select({
+    formBox: $(".lyui-form"),
+    coverStyle: '.lyui-form-sltitle span,.lyui-form-option li a span{color: #ccc;margin-left: 15px;position: absolute;right: 50px;}',
+    coverOption: function (optionStr) {
+        return optionStr.split("|")[0] + "&lt;span&gt;" + optionStr.split("|")[1] + "&lt;/span&gt;";
+    },
+    success: function () {
+        console.log && console.log("success");
+    },
+    click: function () {
+        console.log && console.log("click");
+    }
+});</pre>
+            </section>
+
             <!-- 扩展。。。-->
 
         </div>
@@ -190,21 +251,21 @@ $.lyFrom().select({
 
 <script type="text/javascript" src="assets/js/plugins/ly/ly.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $.lyFrom().select({
-            formBox: $(".lyui-form"),
-            coverStyle: '.lyui-form-sltitle span,.lyui-form-option li a span{color: #ccc;margin-left: 15px;position: absolute;right: 50px;}',
-            coverOption: function (optionStr) {
-                return optionStr.split("|")[0] + "<span>" + optionStr.split("|")[1] + "</span>";
-            },
-            success: function () {
-                console.log && console.log("success");
-            },
-            click: function () {
-                console.log && console.log("click");
-            }
-        });
-    })
+$(document).ready(function () {
+    $.lyFrom().select({
+        formBox: $(".lyui-form"),
+        coverStyle: '.lyui-form-sltitle span,.lyui-form-option li a span{color: #ccc;margin-left: 15px;position: absolute;right: 50px;}',
+        coverOption: function (optionStr) {
+            return optionStr.split("|")[0] + "<span>" + optionStr.split("|")[1] + "</span>";
+        },
+        success: function () {
+            console.log && console.log("success");
+        },
+        click: function () {
+            console.log && console.log("click");
+        }
+    });
+});
 </script>
 </body>
 </html>
